@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+<aside>
+    <section class="inputLogin">
+        <h5>Iniciar Sesión</h5>
+        <aside class="row">
+            <label>Usuario</label>
+            <input type="number" placeholder="Usuario" class="tbUser" autocomplete="off">
+        </aside>
+        <aside class="row">
+            <label>Contraseña</label>
+            <input type="password" placeholder="Contraseña" class="tbPass" autocomplete="off">
+        </aside>
+        <aside class="row">
+            <span class="link restore">¿Olvidó contraseña?</span>
+            <span class="link new">No tiene cuenta, regístrese aquí</span>
+        </aside>
+        <button class="btnSignUp" onclick="login()">Iniciar</button>
+    </section>
+</aside>    
+<script src="~/js/account.js"></script>
+<link rel="stylesheet" href="~/css/account.css">

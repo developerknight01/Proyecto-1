@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+    ViewData["Title"] = "Perfil";
+}
+<section class="contentProfile visible">
+    <aside class="contentHead">
+        <h2>Datos de Perfil</h2>
+        <p>
+            Para actualizar algún dato solamente debe modificar el contenido y presionar <i>Enter</i> para el caso de una computadora.
+            <br />
+            Para el caso de una tablet o celular presione el Enter que se asemeja <i>Flecha apuntando a la derecha</i>
+        </p>
+    </aside>
+    <aside class="contentBody">
+        <aside class="line">
+            <aside class="row">
+                <label>Cédula</label>
+                <input type="number" class="tbInput tbID" placeholder="Cédula - Formato #########" autocomplete="off">
+            </aside>
+            <aside class="row">
+                <label>Nombre</label>
+                <input type="text" class="tbInput tbName" placeholder="Nombre" autocomplete="off">
+            </aside>
+            <aside class="row">
+                <label>Apellidos</label>
+                <input type="text" class="tbInput tbLastName" placeholder="Apellidos" autocomplete="off">
+            </aside>
+        </aside>
+        <aside class="line">
+            <aside class="row">
+                <label>Contraseña</label>
+                <input type="password" class="tbInput tbNewPass" placeholder="Contraseña" autocomplete="off">
+                <span class="iconHelp iconPass"><i class="fa-regular fa-circle-question"></i></span>
+            </aside>
+            <aside class="row">
+                <label>Confirmación de Contraseña</label>
+                <input type="password" class="tbInput tbConfirmPass" placeholder="Confirmación de Contraseña" autocomplete="off">
+            </aside>
+        </aside>
+        <label class="lbErrorPass">Contraseñas no coinciden</label>
+    </aside>
+</section>

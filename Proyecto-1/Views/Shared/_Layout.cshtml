@@ -6,44 +6,70 @@
     <title>@ViewData["Title"] - Proyecto_1</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Proyecto_1.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/fontawesome/css/all.css"/>    
+    <link rel="stylesheet" href="~/boxicons/css/boxicons.min.css" />    
+    <link rel="stylesheet" href="~/css/objects/messagePopUp.css">    
+    <link rel="stylesheet" href="~/objects/three-dots-master/docs/css/three-dots.css"/>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/fontawesome/js/all.js">
+     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script src="~/js/objects/messagePopUp.js"></script>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Proyecto_1</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="header_img"> <a class="profile" title="Iniciar Sesión" asp-area="" asp-controller="Account" asp-action="Account"><i class="fa-solid fa-circle-user"></i></a> </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <div class="nav_list">
+                    <a class="nav_link active home" asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="nav_name">Inicio</span>
+                    </a>
+                    <a class="nav_link bookstore" asp-area="" asp-controller="Books" asp-action="Books">
+                        <i class='bx bxs-book'></i>
+                        <span class="nav_name">Biblioteca</span>
+                    </a>
                 </div>
             </div>
+            <a href="#" class="nav_link btnGoBack">
+                <i class="bx bx-arrow-back"></i>
+                <span class="nav_name">Volver</span>
+            </a>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
     </div>
-
+    <main role="main">
+        @RenderBody()
+    </main>
+    <div class="loadPage">
+        <div class="col-3">
+            <div class="snippet" data-title="dot-elastic">
+                <div class="stage">
+                    <div class="dot-elastic"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="contentPopUp">
+        <aside class="boxPopUp">
+            <aside class="leftPopUp">
+            </aside>
+            <aside class="rightPopUp">
+                <span class="btnClosePopUp"><i class="fa-regular fa-rectangle-xmark"></i></span>
+            </aside>
+        </aside>
+    </aside>    
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - Proyecto_1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+

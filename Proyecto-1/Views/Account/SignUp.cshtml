@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+    ViewData["Title"] = "Registrar Perfil";
+}
+<section class="inputNewUser replace">
+    <span class="btnBackLogin"><i class="fa-solid fa-chevron-left"></i></span><h5>Crear cuenta</h5>
+    <aside class="row">
+        <label>Cédula</label>
+        <input type="number" class="tbInput tbID" placeholder="Cédula - Formato #########">
+    </aside>
+    <aside class="row">
+        <label>Nombre</label>
+        <input type="text" class="tbInput tbName" placeholder="Nombre">
+    </aside>
+    <aside class="row">
+        <label>Apellidos</label>
+        <input type="text" class="tbInput tbLastName" placeholder="Apellidos">
+    </aside>
+    <aside class="row">
+        <label>Contraseña</label>
+        <input type="password" class="tbInput tbPassword" placeholder="Contraseña">
+        <span class="iconHelp iconPass"><i class="fa-regular fa-circle-question"></i></span>
+    </aside>
+    <aside class="row">
+        <label>Confirmación de Contraseña</label>
+        <input type="password" class="tbInput tbConfirmPassword" placeholder="Confirmación de Contraseña">
+    </aside>
+    <label class="lbErrorPass">Contraseñas no coinciden</label>
+    <button class="btnNewUser" onclick="signUp()">Registrarse</button>
+</section>

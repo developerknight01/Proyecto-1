@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Proyecto_1.Models;
 using System.Diagnostics;
+using static System.Net.Mime.MediaTypeNames;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Proyecto_1.Controllers
 {
@@ -12,9 +15,15 @@ namespace Proyecto_1.Controllers
         {
             _logger = logger;
         }
-
+        [HttpPost]
+        public ActionResult GetNewBooks(string a)
+        {
+            string result = new StoreProcedure().getNewBooks();
+            return Json(result);
+        }
         public IActionResult Index()
         {
+            
             return View();
         }
 

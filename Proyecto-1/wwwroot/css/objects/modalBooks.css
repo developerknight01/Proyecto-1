@@ -1,0 +1,243 @@
+﻿.modalBooks {
+    position: fixed;
+    width: 85%;
+    height: calc(100% - 50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 100%;
+    z-index: 10;
+    background-color: white;
+    border-start-start-radius: 10px;
+    border-start-end-radius: 10px;
+    box-shadow: 0px 0px 10px 1px black;
+    padding: 10px;
+    transition: .5s ease-in-out;
+    visibility: hidden;
+    opacity: 0%;
+}
+
+.modalBooks.visible {
+    top: 50%;
+    z-index: 10;
+    visibility: visible;
+    opacity: 100%;
+}
+.modalBooks .modalContent{
+    width:100%;
+}
+.modalBooks .modalHead{
+    width:fit-content;
+    margin:auto;
+}
+.modalHead .btnCloseModal {
+    position: absolute;
+    top: 5px;
+    font-size: 32px;
+    right: 25px;
+    cursor: pointer;
+    color:gray;
+    transition:.35s ease-in-out;
+}
+.modalHead .btnCloseModal:hover{
+    color:black;
+}
+.modalContent .modalBody {
+    width: 100%;
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(0.25turn,white -20%, #ddc67a 50%, white 120%);
+    border-image-slice: 1;
+    text-align: center;
+    padding: 15px 0px;
+    margin-bottom:40px;
+}
+.modalBody tbody tr .btnDeleteItem {
+    font-size: 20px;
+    cursor: pointer;
+    color: gray;
+    transition: .35s ease-in-out;
+}
+.modalBody tbody tr .btnDeleteItem:hover{
+    color:orangered;
+}
+.modalBody .row{
+    top:220px;
+    position:absolute;
+}
+.modalContent .modalFoot{
+    width:fit-content;
+    float:right;
+    position:absolute;
+    right:25px;
+    top:275px;
+}
+.modalFoot i {        
+    font-size: 32px;    
+    cursor: pointer;
+    color: gray;    
+    transition: .35s ease-in-out;
+}
+.modalFoot .btnSend{
+    margin-right:35px;
+}
+.modalFoot .btnSend:hover {
+    color: #324960;
+}
+.modalFoot .btnCloseModalAlt:hover{
+    color:orangered;
+}
+.table-wrapper {
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    width: 75%;
+    margin: auto;
+}
+
+.fl-table {
+    border-radius: 50px;
+    font-weight: normal;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+    .fl-table td, .fl-table th {
+        text-align: center;
+        padding: 8px;
+    }
+
+    .fl-table th {
+        font-size: 16px;
+    }
+
+    .fl-table td {
+        border-right: 1px solid #f8f8f8;
+        font-size: 16px;
+    }
+
+    .fl-table thead th {
+        color: black;
+        background: #0081454a;
+    }
+
+
+        .fl-table thead th:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+    .fl-table tr:nth-child(even) {
+        background: #ebebeb;
+    }
+
+#tableBooksPreOrder tbody tr .btnCart {
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: underline;
+    color: black;
+    transition: 0.35s ease-in-out;
+}
+
+    #tableBooksPreOrder tbody tr .btnCart:hover {
+        color: #0c5dad;
+    }
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+
+    .table-wrapper:before {
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+
+        .fl-table thead th:last-child {
+            border-bottom: none;
+        }
+
+    .fl-table thead {
+        float: left;
+    }
+
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+
+        .fl-table tbody tr:nth-child(odd) {
+            background: none;
+        }
+
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+@media screen and (max-width:1335px) {
+    .modalBooks{
+        width:90%;
+        left:5%;
+        top:50%;
+    }
+    .modalBooks .modalFoot{
+        top:360px;
+    }
+}
+@media (max-width: 767px) {
+    .modalContent .modalBody{
+        height:175px;
+        overflow:auto;
+    }
+    #tableBooksPreOrder{
+        width:80%;
+        margin:auto;
+    }
+}

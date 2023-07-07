@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Biblioteca";
+}
+<link rel="stylesheet" href="~/css/bookstore.css"/>
+<script src="~/js/books.js"></script>
+<aside class="contentBooks">
+    <aside class="contentHead">
+        <h1>Nuestros libros</h1>
+        <p>
+            En este espacio podrá ver todos nuestros libros que disponemos
+            <br />
+            Al presionar el botón <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span> podrá hacer solicitud de un libro.
+            Los libros solicitados tendrá a disposición de ellos máximo un <b>mes</b>
+            <br />
+            En caso que el botón a disposición sea el siguiente <span class="icon"><i class="fa-solid fa-envelope"></i></span> significa que enviará una notificación
+            de petición de <i>lista de espera </i>para la entrada del libro pedido.
+        </p>
+    </aside>
+    <aside class="contentBody">
+        <aside class="row row-searchBook">
+            <label>Buscar Libro</label>
+            <input type="text" class="tbInput tbSearch" id="tbSearch" autocomplete="off">
+        </aside>
+        <aside class="table-wrapper">
+            <table class="fl-table" id="tablebooksNew">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Edición</th>
+                        <th>Editorial</th>
+                        <th>Escritor(a)</th>
+                        <th>Disponibilidad</th>
+                        <th>Opción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Content 1</td>
+                        <td>Content 1</td>
+                        <td>Content 1</td>
+                        <td>Content 1</td>
+                        <td>Content 1</td>
+                    </tr>
+                    <tr>
+                        <td>Content 1</td>
+                        <td>Content 1</td>
+                        <td>Content 1</td>
+                        <td>Content 1</td>
+                        <td>Content 1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </aside>
+    </aside>
+</aside>

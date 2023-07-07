@@ -1,0 +1,266 @@
+﻿aside {
+    width: 30%;    
+    height:100%;
+    margin: 0px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+aside section {
+    width: 100%;
+    margin: 50px auto;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    opacity: 100%;
+    padding: 1%;
+    box-shadow: 0px 0px 10px 0px black;
+    border-radius: 15px;
+    display: block;
+    transition: 0.25s ease;
+}
+
+aside section.replace {
+    left: -20%;
+    opacity: 0%;
+}
+
+aside section.show {
+    opacity: 0%;
+}
+
+aside section.move {
+    left: 20%;
+}
+
+aside section.inactive {
+    position: absolute;
+    left: 75%;
+    top: 20%;
+    right: 0%;
+    opacity: 0%;
+    z-index: -1;
+}
+
+section h5 {
+    margin: 0px auto 20px auto;
+    display: inline-flex;
+}
+
+section .btnBackLogin {
+    width: fit-content;
+    font-size: 24px;
+    padding: 2px;
+    cursor: pointer;
+    float: left;
+}
+
+section .lbErrorPass {
+    display: block;
+    text-align: start;
+    font-size: 0px;
+    width: 65%;
+    position: absolute;
+    height: 40px;
+    margin: auto;
+    font-weight: bold;
+    color: red;
+    opacity: 0%;
+    z-index: -1;
+    transition: 0.35s ease;
+}
+
+section .lbErrorPass.show {
+    opacity: 100%;
+    z-index: 1;
+    font-size: 18px;
+}
+
+.row {
+    display: block;
+    width: 85%;
+    height: 65px;
+    margin: 40px auto;
+    padding: 1%;
+}
+
+    .row label {
+        display: inline-flex;
+        width: fit-content;
+    }
+
+    .row input {
+        display: inline-flex;
+        width: 350px;
+        transition: 0.35s ease;
+    }
+
+.row {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+@supports (mix-blend-mode: darken) {
+    .row {
+        position: relative;
+        /* mix-blend-mode: lighten; */
+    }
+
+        .row label {
+            position: absolute;
+            left: 3em;
+            top: -0.28em;
+            background-color: white;
+        }
+}
+
+.row label {
+    padding: 0 0.5em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    letter-spacing: 0.1em;
+    color: black;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.row input {
+    color: black;
+    font-size: 1.25rem;
+    line-height: 1;
+    border-style: none;
+    outline: none;
+    height: calc(1em + 1.6em + 0.5em);
+    width: 100%;
+    padding: 0.8em 1em;
+    border: 0.25em solid transparent;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(120deg, #fade00 0%, #0ff 50%, #be00ff 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border-radius: 1.8em;
+    background-size: 200% 100%;
+    transition: background-position 0.8s ease-out;
+}
+
+    .row input.errorField {
+        background-image: linear-gradient(#fff, #fff), linear-gradient(120deg, #fade00 0%, #ffa500 50%, #bd0009 100%);
+        animation: highLightInputError 5s infinite ease;
+    }
+
+    .row input:hover,
+    .row input:focus {
+        animation: highLightInput 5s infinite ease;
+    }
+
+.row span {
+    text-align: start;
+    display: block;
+    cursor: pointer;
+    color: cornflowerblue;
+    text-decoration: underline;
+    transition: 0.35s ease;
+}
+
+.row .iconHelp {
+    font-size: 24px;
+    width: fit-content;
+}
+
+.row span:hover {
+    color: blue;
+}
+
+aside section button {
+    position: relative;
+    margin: 0px auto auto auto;
+    top: 0px;
+    border: none;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px black, inset 0px 0px 0px 0px #00bfff80;
+    background-color: transparent;
+    transition: 0.35s ease;
+}
+
+aside section button.move {
+    margin: 50px auto auto auto;
+}
+
+aside section button:hover {
+    background-color: white;
+    box-shadow: 0px 0px 0px 0px black, inset 0px 0px 50px 0px #00bfff80;
+}
+
+@keyframes highLightInput {
+    0% {
+        background-position: 0% 100%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+@keyframes highLightInputError {
+    0% {
+        background-position: 0% 100%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+@media screen and (max-width: 1303px) {
+    aside{
+        width:50%;
+    }
+}
+@media screen and (max-width:810px){
+    aside{
+        width:70%;
+    }
+}
+@media screen and (max-width: 620px) {    
+
+    aside{
+        width:70%;
+    }
+    .row {
+        width: 90%;
+    }
+
+    .row input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 445px) {
+    aside{
+        width:80%;
+        margin:0%;
+    }
+    aside section {
+        width: 330px;
+    }
+
+    .row {
+        width: 90%;
+    }
+
+    .row input {
+        width: 100%;
+    }
+}

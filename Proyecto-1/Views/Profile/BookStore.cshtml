@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+    ViewData["Title"] = "Solicitar Libro";
+}
+<section class="contentOrderBook visible">
+    <aside class="contentHead">
+        <h2>
+            Solicitar Libro
+        </h2>
+        <p>
+            En este espacio podrá ver todos nuestros libros que disponemos
+            <br />
+            Al presionar el botón <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span> podrá hacer solicitud de un libro.
+            Los libros solicitados tendrá a disposición de ellos máximo un <b>mes</b>
+            <br />
+            En caso que el botón a disposición sea el siguiente <span class="icon"><i class="fa-solid fa-envelope"></i></span> significa que enviará una notificación
+            de petición de <i>lista de espera </i>para la entrada del libro pedido.
+        </p>
+    </aside>
+    <aside class="contentBody expand">
+        <aside class="row row-searchBook">
+            <label>Buscar Libro</label>
+            <input type="text" class="tbInput tbSearch" id="tbSearch" autocomplete="off">
+        </aside>
+        <aside class="table-wrapper">
+            <table class="fl-table" id="tablebooksNew">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Edición</th>
+                        <th>Editorial</th>
+                        <th>Escritor(a)</th>
+                        <th>Disponibilidad</th>
+                        <th>Opción</th>
+                    </tr>
+                </thead>
+                <tbody>                    
+                </tbody>
+            </table>
+        </aside>
+    </aside>
+</section>

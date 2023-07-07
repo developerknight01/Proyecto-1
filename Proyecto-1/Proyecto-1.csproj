@@ -7,4 +7,17 @@
     <RootNamespace>Proyecto_1</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\boxicons\.github\FUNDING.yml" />
+    <None Include="wwwroot\objects\three-dots-master\.github\FUNDING.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+  </ItemGroup>
+
 </Project>
