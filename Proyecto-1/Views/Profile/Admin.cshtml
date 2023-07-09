@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+    ViewData["Title"] = "Administración";
+}
+<section class="contentBooks visible">
+    <aside class="contentHead">
+        <h2>Gestor de Libros</h2>
+        <p>
+            En este apartado podrá agregar y actualizar libros que la librería dispone a sus personas usuarias.
+        </p>
+    </aside>
+    <aside class="contentBody expand">
+        <aside class="row row-searchBook">
+            <label>Buscar Libro</label>
+            <input type="text" class="tbInput tbSearch" id="tbSearch" autocomplete="off">
+            <span class="btnClean"><i class="fa-solid fa-eraser"></i></span>
+        </aside>
+        <aside class="table-wrapper">
+            <table class="fl-table" id="tablebooksmanage">
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Título</th>
+                        <th>Edición</th>
+                        <th>Editorial</th>
+                        <th>Escritor(a)</th>
+                        <th>Inventario</th>
+                        <th>Disponibilidad</th>
+                        <th>Opción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="tbISBN" placeholder="ISBN del nuevo libro" /></td>
+                        <td><input type="text" class="tbNameBook" placeholder="Título del nuevo libro"/></td>
+                        <td><input type="text" class="tbEdition" placeholder="Edición del nuevo libro" /></td>
+                        <td><input type="text" class="tbEditorial" placeholder="Editorial del nuevo libro" /></td>
+                        <td><input type="text" class="tbOwner" placeholder="Escritor(a) del nuevo libro" /></td>
+                        <td><input type="text" class="tbStock" placeholder="Inventario del nuevo libro" /></td>
+                        <td><input type="text" class="tbItemLoan" placeholder="Para prestamo del nuevo libro" /></td>
+                        <td><span class="btnAdd" id="btnAdd"><i class="fa-solid fa-circle-plus"></i></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </aside>
+    </aside>
+</section>
+

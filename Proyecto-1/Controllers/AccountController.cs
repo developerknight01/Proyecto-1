@@ -63,8 +63,11 @@ namespace Proyecto_1.Controllers
             usuario.Password = pass;
             result = new StoreProcedure().Login(usuario);
             if(result != "fail" && result != "error")
-            {                
-                return Json(Encrypt(usuario.Id));
+            {
+                if (usuario.Id == "111111111")
+                    return Json(Encrypt(usuario.Id)+"~01");
+                else
+                    return Json(Encrypt(usuario.Id));
             }
             else
             {

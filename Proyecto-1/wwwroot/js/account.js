@@ -2,7 +2,10 @@
     if (readCookie("user") != null) {
         buildMessage("Redireccionando...", 2000);
         setTimeout(() => {
-            location.href = "../Profile/Profile?=info"
+            if (readCookie("user").split("~")[1] == "01")
+                location.href = "../Profile/Profile?=admin";
+            else
+                location.href = "../Profile/Profile?=info";
         }, 2500);        
     }
     else{
@@ -75,7 +78,7 @@ function clickAction() {
     });
     $("aside .iconHelp").click(function () {
         if ($(this).hasClass("iconPass")) {
-            buildMessage("La contraseña debe constar de 8-64 characteres, con números y algún signo especial", 10000);
+            buildMessage("La contraseña debe constar de 8-64 caracteres\nLetras mayúsculas y minúsculas con números y algún signo especial", 10000);
         }
     });
 }
@@ -192,7 +195,10 @@ function login() {
                     $(".loadPage").addClass("active");
                     setTimeout(() => {                        
                         setTimeout(() => {
-                            window.location.href = "../Profile/Profile?=info";
+                            if ($(".inputLogin .tbUser").val() == "111111111")
+                                window.location.href = "../Profile/Profile?=admin";
+                            else
+                                window.location.href = "../Profile/Profile?=info";
                         },550);
                     },550);                    
                 }

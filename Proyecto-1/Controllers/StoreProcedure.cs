@@ -10,6 +10,89 @@ namespace Proyecto_1.Controllers
         public StoreProcedure() {
             con = new SqlConnection("Data Source = DK-G\\SQLEXPRESS; initial Catalog = db_bookstore; Integrated Security = true");
         }
+        public string UpdateBookInfo(string value, string kindOfData, string isbn)
+        {
+            string result = "";
+            try
+            {
+                con.Open();
+                SqlCommand com = con.CreateCommand();
+                com.Connection = con;
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "updateBookInfo";
+                com.Parameters.AddWithValue("value",value);
+                com.Parameters.AddWithValue("kindOfData", kindOfData);
+                com.Parameters.AddWithValue("isbn", isbn);
+                SqlDataReader reader = com.ExecuteReader();
+                if (reader.HasRows)
+                    while (reader.Read())
+                        result = reader.GetString(0);
+            }
+            catch(Exception ex) {
+                //result = ex.ToString();
+                result = "error";
+            }
+            finally { con.Close(); }
+            return result;
+        }
+        public string InsertNewBook(Books book)
+        {
+            string result = "";
+            try
+            {
+                con.Open();
+                SqlCommand com = con.CreateCommand();
+                com.Connection = con;
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "insertNewBook";
+                com.Parameters.AddWithValue("isbn",book.Isbn);
+                com.Parameters.AddWithValue("nameBook", book.Name);
+                com.Parameters.AddWithValue("editorial", book.Editorial);                
+                com.Parameters.AddWithValue("edition", book.Edition);
+                com.Parameters.AddWithValue("nameOwner", book.NameOwner);
+                com.Parameters.AddWithValue("stock", book.Stock);
+                com.Parameters.AddWithValue("itemLoan", book.ItemLoan);
+                SqlDataReader reader = com.ExecuteReader();
+                if (reader.HasRows)
+                    while (reader.Read())
+                        result = reader.GetString(0);
+            }
+            catch (Exception ex)
+            {
+                //result = ex.ToString();
+                result = "error";
+            }
+            finally { con.Close(); }
+            return result;
+        }
+        public string GetAllBooksAdmin()
+        {
+            string result = "";
+            try
+            {
+                con.Open();
+                SqlCommand com = con.CreateCommand();
+                com.Connection = con;
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "manageBook";
+                SqlDataReader reader = com.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        result += reader.GetString(0) + "+" + reader.GetString(1) + "+" + reader.GetString(2) + "+" + reader.GetString(3) + "+";
+                        result += reader.GetString(4) + "+" + reader.GetString(5) + "+" + reader.GetString(6) + "*";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //result = ex.ToString();
+                result = "error";
+            }
+            finally { con.Close(); }
+            return result;
+        }
         public string CheckBookReturned(string userID)
         {
             string result = "";

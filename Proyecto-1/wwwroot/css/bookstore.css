@@ -381,6 +381,28 @@ aside section button {
         text-align: center;
     }
 }
+#tablebooksNew tbody tr,
+#tablebooksordered tbody tr,
+#tablebooksmanage tbody tr{
+    visibility: visible;
+    opacity: 100%;
+    display: table-row;
+    transition: .35s ease-in-out;
+}
+#tablebooksNew tbody tr.disappear{
+    opacity:0%;
+    visibility:hidden;
+}
+#tablebooksNew tbody tr.disappear.disappear.none{
+    display:none;
+}
+.contentBody .row-searchBook .btnClean {
+    position: absolute;
+    left: 60%;
+    bottom: 0px;
+    font-size: 24px;
+}
+
 
 @media screen and (max-width:1335px) {
     .contentBody .row.row-searchBook {
@@ -429,6 +451,9 @@ aside section button {
 
     .contentBody .row.row-searchBook label {
         left: 5em;
+    }
+    .contentBody .row-searchBook .btnClean {
+        left: 90%;
     }
 }
 

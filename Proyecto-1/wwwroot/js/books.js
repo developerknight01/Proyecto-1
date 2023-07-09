@@ -4,10 +4,20 @@ var countChosenAuxiliar = 0;
 var books = [];
 var booksInfo = [];
 $(document).ready(function () {
-    getAllBooks();
+    getAllBooks();    
 });
+function clickActionBookStore() {
+    $(".contentBody .row-searchBook .btnClean").click(function () {
+        resetTable();
+    });
+}
 function hoverActionBooks() {
     $("#tablebooksNew tbody .btnCart").hover(function () {
+        $(this).children("svg").addClass("fa-beat-fade");
+    }, function () {
+        $(this).children("svg").removeClass("fa-beat-fade");
+    });
+    $(".contentBody .row-searchBook .btnClean").hover(function () {
         $(this).children("svg").addClass("fa-beat-fade");
     }, function () {
         $(this).children("svg").removeClass("fa-beat-fade");
@@ -51,9 +61,16 @@ function getAllBooks() {
                 $("#tablebooksNew tbody .btnCart").click(function () {
                     var isbn = $(this).attr("id");
                     var userID = readCookie("user");
-                    if (isbn != null || isbn != "")
-                        checkBooksOrderHave(isbn, userID);
+                    if (userID != null) {
+                        if (isbn != null || isbn != "")
+                            checkBooksOrderHave(isbn, userID);
+                    }
+                    else {
+                        buildMessage("Primero debe iniciar sesión");
+                        inactiveLoadPage(550);
+                    }                        
                 });
+                clickActionBookStore();
                 $.ajax({
                     url: "../Books/ModalBook",
                     success: function (html) {
@@ -70,7 +87,28 @@ function getAllBooks() {
         }
     });
 }
-
+function resetTable() {
+    var table = "";
+    if ($("#tablebooksordered").length > 0) {
+        table = "#tablebooksordered";
+    }
+    else if ($("#tablebooksNew").length > 0) {
+        table = "#tablebooksNew";
+    }
+    else if ($("#tablebooksmanage").length > 0) {
+        table = "#tablebooksmanage";
+    }
+    $(".contentBody .row-searchBook .btnClean").click(function () {
+        if ($(table + " tbody tr").hasClass("disappear")) {
+            if ($("#tbSearch").val(null)) {
+                $(table + " tbody tr.none").removeClass("none");
+                setTimeout(() => {
+                    $(table + " tbody tr.disappear").removeClass("disappear");
+                }, 350);
+            }
+        }
+    });
+}
 function autocomplete(inp, arr, arrAlt) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -105,7 +143,9 @@ function autocomplete(inp, arr, arrAlt) {
                     inp.value = this.getElementsByTagName("input")[0].value;
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
+                    searchBookOnTable(inp.value);
                     closeAllLists();
+
                 });
                 a.appendChild(b);
             }
@@ -166,6 +206,43 @@ function autocomplete(inp, arr, arrAlt) {
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
     });
+}
+function searchBookOnTable(value) {
+    var table = "";
+    var col = 1;
+    if (value != "") {
+        if ($("#tablebooksordered").length > 0) {
+            table = "#tablebooksordered";
+        }
+        else if ($("#tablebooksNew").length > 0) {
+            table = "#tablebooksNew";
+        }
+        else if ($("#tablebooksmanage").length > 0) {
+            table = "#tablebooksmanage";
+            col = 2;
+        }
+        if ($(table + " tbody tr.disappear").hasClass("disappear")) {
+            $(table + " tbody tr.disappear").removeClass("none");
+            $(table + " tbody tr.disappear").removeClass("disappear");
+        }
+        for (var i = 1; i <= $(table + " tbody tr").length; i++) {
+            if (col == 1) {
+                if ($(table + " tbody tr:nth-child(" + i + ") td:nth-child(" + col + ")").text() != value) {
+                    $(table + " tbody tr:nth-child(" + i + ")").addClass("disappear");
+                }
+            }
+            else if (col == 2) {
+                if ($(table + " tbody tr:nth-child(" + i + ") td:nth-child(" + col + ") input").attr("placeholder") != value) {
+                    $(table + " tbody tr:nth-child(" + i + ")").addClass("disappear");
+                }
+            }
+
+        }
+        buildMessage("Si desea reiniciar la tabla, presione el botón que luce como un borrador a la derecha de la barra de búsqueda");
+        setTimeout(() => {
+            $(table + " tbody tr.disappear").addClass("none");
+        }, 550);
+    }
 }
 function checkBooksOrderHave(isbn, user) {
     $.ajax({

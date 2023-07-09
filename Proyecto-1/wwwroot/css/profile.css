@@ -1,4 +1,7 @@
-﻿.menuProfile {
+﻿.errorInput {
+    box-shadow: inset 0px 0px 5px 0px red !important;
+}
+.menuProfile {
     width: fit-content;
     height: fit-content;
     margin: 0%;
@@ -321,33 +324,58 @@ aside section button:hover {
     color:red;
 }
 #tablebooksNew tbody tr .btnCart,
-#tablebooksordered tbody tr .btnOption{
+#tablebooksordered tbody tr .btnOption,
+#tablebooksmanage tbody tr .btnOption,
+#tablebooksmanage tbody tr .btnAdd {
     cursor: pointer;
     font-size: 18px;
     text-decoration: underline;
     color: black;
     transition: 0.35s ease-in-out;
 }
-
+#tablebooksmanage tbody tr .btnOption,
+#tablebooksmanage tbody tr .btnAdd {
+    color: gray;
+}
 #tablebooksNew tbody tr .btnCart:hover,
-#tablebooksordered tbody tr .btnOption:hover{
+#tablebooksordered tbody tr .btnOption:hover,
+#tablebooksmanage tbody tr .btnOption:hover,
+#tablebooksmanage tbody tr .btnAdd:hover{
     color: #0c5dad;
 }
-#tablebooksNew tbody tr,
-#tablebooksordered tbody tr{
-    visibility:visible;
-    opacity:100%;
-    display:table-row;
+#tablebooksmanage tbody tr input {
+    border: none;
+    background-color: transparent;
+    box-shadow: inset 0px 0px 1px 0px black;
+    height: 45px;
+    padding: 5px;
+    outline: none;
     transition:.35s ease-in-out;
 }
+#tablebooksNew tbody tr,
+#tablebooksordered tbody tr,
+#tablebooksmanage tbody tr{
+    visibility: visible;
+    opacity: 100%;
+    display: table-row;
+    transition: .35s ease-in-out;
+}
 #tablebooksNew tbody tr.disappear,
-#tablebooksordered tbody tr.disappear {
+#tablebooksordered tbody tr.disappear,
+#tablebooksmanage tbody tr.disappear{
     opacity:0%;
     visibility:hidden;
 }
 #tablebooksNew tbody tr.disappear.disappear.none,
-#tablebooksordered tbody tr.disappear.disappear.none{
+#tablebooksordered tbody tr.disappear.disappear.none,
+#tablebooksmanage tbody tr.disappear.none{
     display:none;
+}
+.contentBody .row-searchBook .btnClean {
+    position: absolute;
+    left: 60%;
+    bottom: 0px;
+    font-size: 24px;
 }
 
 /* Responsive */
@@ -439,6 +467,9 @@ aside section button:hover {
     .contentBody.expand .autocomplete-items{
         left:15%;
     }
+    .contentBody .row-searchBook .btnClean {        
+        left: 80%;                
+    }
     .row input{
         width:80%;
         margin:auto;
@@ -473,6 +504,9 @@ aside section button:hover {
     }
     .contentBody.expand .row.row-searchBook label{
         left:5em;
+    }
+    .contentBody .row-searchBook .btnClean {
+        left: 90%;
     }
 }
 

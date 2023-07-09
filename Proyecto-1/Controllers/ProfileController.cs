@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography;
 using System.Text;
-
+using Proyecto_1.CDomain;
 namespace Proyecto_1.Controllers
 {
     public class ProfileController : Controller
@@ -81,6 +81,10 @@ namespace Proyecto_1.Controllers
         public IActionResult BookStore() {
             return View();
         }
+        public IActionResult Admin()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult OwnInfo(string idUser)
         {
@@ -119,6 +123,21 @@ namespace Proyecto_1.Controllers
         {
             string user = Decrypt(userID);
             return Json(new StoreProcedure().CheckBookReturned(user));
+        }
+        [HttpPost]
+        public ActionResult GetAllBooksAdmin()
+        {
+            return Json(new StoreProcedure().GetAllBooksAdmin());
+        }
+        [HttpPost]
+        public ActionResult InsertNewBook(string isbn, string name, string edition, string editorial, string owner, string stock, string itemLoan)
+        {            
+            return Json(new StoreProcedure().InsertNewBook(new Books(isbn, name, edition, editorial, owner, stock, itemLoan)));
+        }
+        [HttpPost]
+        public ActionResult UpdateBookInfo(string value, string kindOfData, string isbn)
+        {
+            return Json(new StoreProcedure().UpdateBookInfo(value,kindOfData,isbn));
         }
     }
 }
