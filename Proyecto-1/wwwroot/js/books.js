@@ -254,8 +254,17 @@ function checkBooksOrderHave(isbn, user) {
             activeLoadPage();
         },
         success: function (response) {
-            if (response < 3 && (countChosenAuxiliar + countChosen) < 3) {
-                countChosenAuxiliar = response;
+            if (response < 3 && countChosen < 3) {
+                if (countChosenAuxiliar == 0 && response > 0) {
+                    countChosenAuxiliar = response;
+                    countChosen = countChosenAuxiliar;
+                }
+                if (response == 1) {
+                    bookChosen[0] = "null";
+                }
+                else if (response == 2) {
+                    bookChosen[0] = bookChosen[1] = "null";
+                }
                 if (checkBookSelected(isbn)) {
                     buildMessage("El libro ya fue seleccionado, si no lo desea quítelo del panel inferior");
                     inactiveLoadPage(650);
